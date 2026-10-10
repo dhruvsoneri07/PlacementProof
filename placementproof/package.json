@@ -1,0 +1,9 @@
+{
+  "name": "placementproof",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A lightweight notice verification prototype for college placement cells.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

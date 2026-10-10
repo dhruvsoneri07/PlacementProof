@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="placementProof helps students check job and internship notices before they pay or apply." />
+    <title>placementProof — check before you act</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#top" aria-label="placementProof home">
+          <span class="brand-mark">pp</span>
+          <span>
+            <strong>placementProof</strong>
+            <small>check before you act</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#opportunities">Opportunities</a>
+          <a href="#checker">Check a notice</a>
+          <a href="#reviews">Cell dashboard</a>
+        </nav>
+        <span class="demo-chip"><span class="status-dot"></span> Prototype</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="rule"></span> For students and placement cells</p>
+          <h1>Before you pay or apply, <em>check the source.</em></h1>
+          <p class="hero-lede">Forwarded messages can lose the details that matter. placementProof lets you compare a notice with the record approved by your college placement cell.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#checker">Check a notice <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#opportunities">Browse approved jobs</a>
+          </div>
+          <div class="hero-footnote"><span class="tiny-check">✓</span> Clear evidence, calm next steps — not automatic verdicts.</div>
+        </div>
+        <div class="hero-card-wrap">
+          <div class="pin-label">OFFICER-REVIEWED</div>
+          <article class="notice-card hero-card">
+            <div class="card-topline"><span class="approved-pill"><span>✓</span> Approved</span><span class="mono">PP-2026-014</span></div>
+            <div class="company-line"><span class="company-avatar">B</span><span>BrightPath Analytics</span></div>
+            <h2>Graduate Data Analyst</h2>
+            <p class="muted">Bengaluru / Hybrid · Full-time</p>
+            <div class="mini-details">
+              <div><span>Apply by</span><strong>30 Oct 2026</strong></div>
+              <div><span>Student fee</span><strong>₹0</strong></div>
+            </div>
+            <div class="source-strip"><span class="source-icon">↗</span><span>brightpathanalytics.in</span><span class="source-checked">Source checked</span></div>
+          </article>
+          <div class="hero-note"><span class="note-arrow">↙</span><span>The source record is the reference point.</span></div>
+        </div>
+      </section>
+
+      <section class="trust-band">
+        <div class="shell trust-band-inner">
+          <div class="trust-message"><span class="trust-icon">◎</span><span><strong>What we check</strong> &nbsp;notice ID · employer domain · contact · requested fee</span></div>
+          <span class="trust-side">Recorded by your Training &amp; Placement Cell</span>
+        </div>
+      </section>
+
+      <section id="opportunities" class="section shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="rule"></span> 01 / Approved board</p>
+            <h2>Start with the notices your cell has checked.</h2>
+          </div>
+          <p class="section-intro">These records show the official source, the review date and the fee policy. If a forwarded message differs, pause and verify.</p>
+        </div>
+        <div id="opportunity-list" class="opportunity-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="checker" class="section checker-section">
+        <div class="shell">
+          <div class="section-heading checker-heading">
+            <div>
+              <p class="eyebrow"><span class="rule"></span> 02 / Notice checker</p>
+              <h2>Does this message match the approved record?</h2>
+            </div>
+            <div class="example-buttons" aria-label="Load examples">
+              <button class="small-button" type="button" data-example="match">Load matching example</button>
+              <button class="small-button small-button-accent" type="button" data-example="difference">Load changed-fee example</button>
+            </div>
+          </div>
+
+          <div class="checker-layout">
+            <form id="checker-form" class="checker-form">
+              <div class="form-intro"><span class="step-number">A</span><div><strong>Enter the details from the message</strong><p>Use the text you received. You do not need to guess.</p></div></div>
+              <label for="notice-id">Notice ID <span class="label-hint">example: PP-2026-014</span></label>
+              <input id="notice-id" name="noticeId" type="text" placeholder="PP-2026-014" autocomplete="off" required />
+              <div class="form-row">
+                <div>
+                  <label for="domain">Employer domain</label>
+                  <input id="domain" name="domain" type="text" placeholder="company.in" autocomplete="off" required />
+                </div>
+                <div>
+                  <label for="contact">Contact email</label>
+                  <input id="contact" name="contact" type="email" placeholder="careers@company.in" autocomplete="off" required />
+                </div>
+              </div>
+              <label for="fee">Requested fee</label>
+              <div class="fee-input"><span>₹</span><input id="fee" name="fee" type="number" min="0" step="1" placeholder="0" required /><span class="fee-suffix">from the message</span></div>
+              <button class="button button-primary form-submit" type="submit">Compare with approved notice <span aria-hidden="true">→</span></button>
+              <p class="form-note"><span>i</span> An unknown notice is simply marked “not reviewed”. This demo does not prove whether an offer is genuine or fraudulent.</p>
+            </form>
+
+            <div id="checker-result" class="checker-result" aria-live="polite">
+              <div class="result-empty">
+                <div class="result-icon">⌕</div>
+                <p class="eyebrow">Your result will appear here</p>
+                <h3>Compare four small details before taking a big step.</h3>
+                <p>We will show what matches, what differs and who to contact next.</p>
+                <div class="result-check-list"><span>01</span> notice ID <span>02</span> domain <span>03</span> contact <span>04</span> fee</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="section shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="rule"></span> 03 / Placement cell</p>
+            <h2>One small review queue. Three clear states.</h2>
+          </div>
+          <div class="demo-role-note"><span class="lock-icon">⌑</span> Demo role switch — <strong>not access control</strong></div>
+        </div>
+        <div class="dashboard-stats" id="dashboard-stats"></div>
+        <div class="review-layout">
+          <div class="review-list" id="review-list" aria-live="polite"></div>
+          <aside class="review-aside">
+            <div class="aside-card">
+              <span class="aside-number">04</span>
+              <h3>Source provenance</h3>
+              <p>Every approved notice keeps the official URL, approved contact, deadline and fee policy in one place.</p>
+              <a href="#checker" class="text-link">Use the checker <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="aside-card light-aside">
+              <span class="aside-number">SDG 8</span>
+              <h3>Safer access to decent work</h3>
+              <p>Clear source records can help young job seekers reach legitimate opportunities without recruitment deception.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section guidance-section">
+        <div class="shell guidance-layout">
+          <div>
+            <p class="eyebrow"><span class="rule"></span> Why this matters</p>
+            <h2>Good advice is simple when a message feels urgent.</h2>
+          </div>
+          <div class="guidance-copy">
+            <p>Final-year students and first-time job seekers may receive notices through forwards, screenshots or group chats. The original source can disappear, while an impersonated employer may ask for application, training or background-check payments.</p>
+            <p class="source-callout"><strong>Context, not a fraud-rate claim.</strong> CERT-In’s 2024 advisory CIAD-2024-0050 describes fake job listings aimed at fresh graduates. A 2025 Ministry of Rural Development / PIB report described a fake NRDRM recruitment website removed through I4C and followed by an FIR.</p>
+            <div class="next-step-strip"><span class="next-step-icon">→</span><div><strong>If details differ</strong><span>Do not pay. Open the official source, then contact your placement cell using the recorded contact.</span></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div class="footer-brand"><span class="brand-mark">pp</span><div><strong>placementProof</strong><span>A prototype for safer placement notices.</span></div></div>
+        <div class="footer-meta"><span>Simple checks. Better decisions.</span><span>Built for SDG 8.</span></div>
+      </div>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>

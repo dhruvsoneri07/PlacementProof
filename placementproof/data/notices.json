@@ -1,0 +1,72 @@
+{
+  "notices": [
+    {
+      "id": "PP-2026-014",
+      "title": "Graduate Data Analyst",
+      "company": "BrightPath Analytics",
+      "type": "Job",
+      "location": "Bengaluru / Hybrid",
+      "domain": "brightpathanalytics.in",
+      "officialUrl": "https://brightpathanalytics.in/careers/graduate-analyst",
+      "contact": "campus@brightpathanalytics.in",
+      "deadline": "30 Oct 2026",
+      "fee": "₹0",
+      "feeValue": 0,
+      "reviewedOn": "08 Oct 2026",
+      "reviewer": "Training & Placement Cell",
+      "status": "approved",
+      "sourceNote": "Source URL and contact were checked by the placement cell."
+    },
+    {
+      "id": "PP-2026-014-FWD",
+      "title": "Graduate Data Analyst",
+      "company": "BrightPath Analytics (forwarded copy)",
+      "type": "Forwarded notice",
+      "location": "Bengaluru / Hybrid",
+      "domain": "brightpathanalytics.in",
+      "officialUrl": "https://brightpathanalytics.in/careers/graduate-analyst",
+      "contact": "campus@brightpathanalytics.in",
+      "deadline": "30 Oct 2026",
+      "fee": "₹1,499",
+      "feeValue": 1499,
+      "reviewedOn": "08 Oct 2026",
+      "reviewer": "Forwarded message — not an approved source",
+      "status": "forwarded",
+      "sourceNote": "This copied version changes the payment request from the approved record."
+    },
+    {
+      "id": "PP-2026-021",
+      "title": "Junior Product Intern",
+      "company": "Northstar Labs",
+      "type": "Internship",
+      "location": "Pune",
+      "domain": "northstarlabs.example",
+      "officialUrl": "https://northstarlabs.example/careers/product-intern",
+      "contact": "placements@northstarlabs.example",
+      "deadline": "05 Nov 2026",
+      "fee": "₹0",
+      "feeValue": 0,
+      "reviewedOn": "Pending review",
+      "reviewer": "Awaiting officer review",
+      "status": "pending",
+      "sourceNote": "Do not treat this listing as reviewed until the cell confirms it."
+    },
+    {
+      "id": "PP-2026-009",
+      "title": "Customer Success Trainee",
+      "company": "Harborline Services",
+      "type": "Job",
+      "location": "Chennai",
+      "domain": "harborline.example",
+      "officialUrl": "https://harborline.example/jobs/customer-success",
+      "contact": "careers@harborline.example",
+      "deadline": "Closed",
+      "fee": "₹0",
+      "feeValue": 0,
+      "reviewedOn": "01 Oct 2026",
+      "reviewer": "Training & Placement Cell",
+      "status": "withdrawn",
+      "sourceNote": "The cell withdrew this opportunity. Do not apply using old copies."
+    }
+  ]
+}
