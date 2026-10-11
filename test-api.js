@@ -12,7 +12,7 @@ function request(options, data) {
       res.on('data', chunk => body += chunk);
       res.on('end', () => {
         let parsed = body;
-        try { parsed = JSON.parse(body); } catch (_) {}
+        try { parsed = JSON.parse(body); } catch (_) { }
         resolve({ status: res.statusCode, headers: res.headers, body: parsed });
       });
     });

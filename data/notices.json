@@ -12,10 +12,10 @@
       "deadline": "30 Oct 2026",
       "fee": "₹0",
       "feeValue": 0,
-      "reviewedOn": "08 Oct 2026",
+      "reviewedOn": "11 Oct 2026",
       "reviewer": "Training & Placement Cell",
-      "status": "approved",
-      "sourceNote": "Source URL and contact were checked by the placement cell.",
+      "status": "withdrawn",
+      "sourceNote": "The placement cell withdrew this opportunity. Do not apply using old copies.",
       "hash": "8ceade427575c8d92842b27ed4a2986dd7848872db099e5cbf4bede9dad0c77d"
     },
     {
@@ -48,10 +48,10 @@
       "deadline": "05 Nov 2026",
       "fee": "₹0",
       "feeValue": 0,
-      "reviewedOn": "Pending review",
-      "reviewer": "Awaiting officer review",
-      "status": "pending",
-      "sourceNote": "Do not treat this listing as reviewed until the cell confirms it.",
+      "reviewedOn": "11 Oct 2026",
+      "reviewer": "Training & Placement Cell",
+      "status": "approved",
+      "sourceNote": "Source URL and contact verified by Training & Placement Cell.",
       "hash": "18a7ed5d13f55cdb753f259dd94366f33e0efb1d1293ddcb417715bab55e2358"
     },
     {
@@ -66,10 +66,10 @@
       "deadline": "Closed",
       "fee": "₹0",
       "feeValue": 0,
-      "reviewedOn": "01 Oct 2026",
+      "reviewedOn": "11 Oct 2026",
       "reviewer": "Training & Placement Cell",
-      "status": "withdrawn",
-      "sourceNote": "The cell withdrew this opportunity. Do not apply using old copies.",
+      "status": "approved",
+      "sourceNote": "Source URL and contact verified by Training & Placement Cell.",
       "hash": "fb9b2367b5dc726bccc1a9bd11833ecf54dd992e5118219000a931ea7afdb819"
     }
   ]

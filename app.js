@@ -326,7 +326,7 @@ async function handleActionClick(event) {
       });
       if (!res.ok) throw new Error(`Failed to update notice`);
       const data = await res.json();
-      
+
       const idx = appState.notices.findIndex(n => n.id.toLowerCase() === id.toLowerCase());
       if (idx !== -1 && data.notice) {
         appState.notices[idx] = data.notice;

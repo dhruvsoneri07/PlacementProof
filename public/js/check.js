@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
           form.requestSubmit();
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }
 
   // Raw text message parser

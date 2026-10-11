@@ -1,140 +1,155 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Notice Checker — Compare placement notices against cryptographic officer-approved records." />
-    <title>Notice Checker — PlacementProof</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="shell header-inner">
-        <a class="brand" href="/" aria-label="PlacementProof home">
-          <span class="brand-mark">pp</span>
-          <span>
-            <strong>placementProof</strong>
-            <small>check before you act</small>
-          </span>
-        </a>
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/check" class="active">Notice Checker</a>
-          <a href="/board">Approved Board</a>
-          <a href="/portal">Officer Portal</a>
-        </nav>
-        <span class="demo-chip"><span class="status-dot"></span> SHA-256 Engine</span>
-      </div>
-    </header>
 
-    <main class="shell section" style="padding-top: 50px;">
-      <div class="section-heading" style="margin-bottom: 20px;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Notice Checker — Compare placement notices against cryptographic officer-approved records." />
+  <title>Notice Checker — PlacementProof</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="PlacementProof home">
+        <span class="brand-mark">pp</span>
+        <span>
+          <strong>placementProof</strong>
+          <small>check before you act</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/check" class="active">Notice Checker</a>
+        <a href="/board">Approved Board</a>
+        <a href="/portal">Officer Portal</a>
+      </nav>
+      <span class="demo-chip"><span class="status-dot"></span> SHA-256 Engine</span>
+    </div>
+  </header>
+
+  <main class="shell section" style="padding-top: 50px;">
+    <div class="section-heading" style="margin-bottom: 20px;">
+      <div>
+        <p class="eyebrow"><span class="rule"></span> Security Workbench</p>
+        <h2>Notice Verification &amp; Threat Detection</h2>
+      </div>
+      <div class="example-buttons" aria-label="Quick test examples">
+        <button class="small-button" type="button" id="btn-example-match">Load Verified Example</button>
+        <button class="small-button small-button-accent" type="button" id="btn-example-tamper">Load Tampered Fee
+          Example</button>
+        <button class="small-button small-button-accent" type="button" id="btn-example-phish">Load Phishing Domain
+          Example</button>
+      </div>
+    </div>
+
+    <p class="muted" style="max-width: 650px; margin-bottom: 30px;">
+      Verify forwarded job listings against college T&amp;P records. Our engine validates corporate domains, recruitment
+      email formats, fee policies, and computes a cryptographic SHA-256 hash to detect altered details.
+    </p>
+
+    <div class="checker-layout">
+      <!-- Form / Scanner Box -->
+      <div class="checker-form-box">
+        <div class="mode-tabs" role="tablist">
+          <button class="mode-tab active" type="button" id="tab-form-mode">1. Structured Fields</button>
+          <button class="mode-tab" type="button" id="tab-raw-mode">2. Raw Message Scanner (WhatsApp / Email)</button>
+        </div>
+
+        <!-- Mode A: Structured Fields -->
+        <form id="checker-form" class="checker-form" style="padding-top: 5px;">
+          <label for="notice-id">Notice ID * <span class="label-hint">format: PP-2026-XXX</span></label>
+          <input id="notice-id" name="noticeId" type="text" placeholder="e.g. PP-2026-014" autocomplete="off"
+            required />
+
+          <div class="form-row">
+            <div>
+              <label for="domain">Employer Website Domain * <span class="label-hint">e.g. company.in</span></label>
+              <input id="domain" name="domain" type="text" placeholder="brightpathanalytics.in" autocomplete="off"
+                required />
+            </div>
+            <div>
+              <label for="contact">Contact Email * <span class="label-hint">recruiter address</span></label>
+              <input id="contact" name="contact" type="text" placeholder="campus@brightpathanalytics.in"
+                autocomplete="off" required />
+            </div>
+          </div>
+
+          <label for="fee">Requested Student Fee (₹) * <span class="label-hint">demanded in the notice</span></label>
+          <div class="fee-input">
+            <span>₹</span>
+            <input id="fee" name="fee" type="number" min="0" step="1" placeholder="0" required />
+            <span class="fee-suffix">amount</span>
+          </div>
+
+          <button class="button button-primary form-submit" type="submit">
+            Run Cryptographic Verification <span aria-hidden="true">→</span>
+          </button>
+          <p class="form-note">
+            <span>i</span> Unknown IDs are flagged as "Not Reviewed". Never pay application or screening fees.
+          </p>
+        </form>
+
+        <!-- Mode B: Raw Message Parser -->
+        <form id="raw-checker-form" class="checker-form" style="display: none; padding-top: 5px;">
+          <label for="raw-text">Paste Forwarded Message Text * <span class="label-hint">WhatsApp / Telegram /
+              SMS</span></label>
+          <textarea id="raw-text"
+            placeholder="Paste the full forwarded message here... e.g.:
+'Urgent hiring: BrightPath Analytics Graduate Data Analyst (ID: PP-2026-014). Visit brightpathanalytics.in or email campus@brightpathanalytics.in. Mandatory registration deposit: ₹1499...'"
+            required></textarea>
+
+          <button class="button button-primary form-submit" type="submit">
+            Scan &amp; Extract Notice Details <span aria-hidden="true">→</span>
+          </button>
+          <p class="form-note">
+            <span>🔍</span> Our forensic text scanner extracts emails, domains, fee demands, and flags suspicious threat
+            keywords.
+          </p>
+        </form>
+      </div>
+
+      <!-- Evidence & Result Box -->
+      <div id="checker-result-box" class="checker-result-box">
+        <div class="result-empty">
+          <div class="result-icon">⌕</div>
+          <p class="eyebrow">Awaiting Input</p>
+          <h3>Verify 5 essential security parameters before applying.</h3>
+          <p>Our server-side engine checks Notice ID, corporate domain, recruiter email, zero-fee compliance, and
+            computes an immutable SHA-256 fingerprint.</p>
+          <div class="result-check-list">
+            <span>01</span> Notice ID
+            <span>02</span> Corporate Domain
+            <span>03</span> Recruiter Email
+            <span>04</span> Fee Policy
+            <span>05</span> SHA-256 Hash
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">pp</span>
         <div>
-          <p class="eyebrow"><span class="rule"></span> Security Workbench</p>
-          <h2>Notice Verification &amp; Threat Detection</h2>
-        </div>
-        <div class="example-buttons" aria-label="Quick test examples">
-          <button class="small-button" type="button" id="btn-example-match">Load Verified Example</button>
-          <button class="small-button small-button-accent" type="button" id="btn-example-tamper">Load Tampered Fee Example</button>
-          <button class="small-button small-button-accent" type="button" id="btn-example-phish">Load Phishing Domain Example</button>
+          <strong>placementProof</strong>
+          <span>Notice Checker Workbench.</span>
         </div>
       </div>
-
-      <p class="muted" style="max-width: 650px; margin-bottom: 30px;">
-        Verify forwarded job listings against college T&amp;P records. Our engine validates corporate domains, recruitment email formats, fee policies, and computes a cryptographic SHA-256 hash to detect altered details.
-      </p>
-
-      <div class="checker-layout">
-        <!-- Form / Scanner Box -->
-        <div class="checker-form-box">
-          <div class="mode-tabs" role="tablist">
-            <button class="mode-tab active" type="button" id="tab-form-mode">1. Structured Fields</button>
-            <button class="mode-tab" type="button" id="tab-raw-mode">2. Raw Message Scanner (WhatsApp / Email)</button>
-          </div>
-
-          <!-- Mode A: Structured Fields -->
-          <form id="checker-form" class="checker-form" style="padding-top: 5px;">
-            <label for="notice-id">Notice ID * <span class="label-hint">format: PP-2026-XXX</span></label>
-            <input id="notice-id" name="noticeId" type="text" placeholder="e.g. PP-2026-014" autocomplete="off" required />
-
-            <div class="form-row">
-              <div>
-                <label for="domain">Employer Website Domain * <span class="label-hint">e.g. company.in</span></label>
-                <input id="domain" name="domain" type="text" placeholder="brightpathanalytics.in" autocomplete="off" required />
-              </div>
-              <div>
-                <label for="contact">Contact Email * <span class="label-hint">recruiter address</span></label>
-                <input id="contact" name="contact" type="text" placeholder="campus@brightpathanalytics.in" autocomplete="off" required />
-              </div>
-            </div>
-
-            <label for="fee">Requested Student Fee (₹) * <span class="label-hint">demanded in the notice</span></label>
-            <div class="fee-input">
-              <span>₹</span>
-              <input id="fee" name="fee" type="number" min="0" step="1" placeholder="0" required />
-              <span class="fee-suffix">amount</span>
-            </div>
-
-            <button class="button button-primary form-submit" type="submit">
-              Run Cryptographic Verification <span aria-hidden="true">→</span>
-            </button>
-            <p class="form-note">
-              <span>i</span> Unknown IDs are flagged as "Not Reviewed". Never pay application or screening fees.
-            </p>
-          </form>
-
-          <!-- Mode B: Raw Message Parser -->
-          <form id="raw-checker-form" class="checker-form" style="display: none; padding-top: 5px;">
-            <label for="raw-text">Paste Forwarded Message Text * <span class="label-hint">WhatsApp / Telegram / SMS</span></label>
-            <textarea id="raw-text" placeholder="Paste the full forwarded message here... e.g.:
-'Urgent hiring: BrightPath Analytics Graduate Data Analyst (ID: PP-2026-014). Visit brightpathanalytics.in or email campus@brightpathanalytics.in. Mandatory registration deposit: ₹1499...'" required></textarea>
-
-            <button class="button button-primary form-submit" type="submit">
-              Scan &amp; Extract Notice Details <span aria-hidden="true">→</span>
-            </button>
-            <p class="form-note">
-              <span>🔍</span> Our forensic text scanner extracts emails, domains, fee demands, and flags suspicious threat keywords.
-            </p>
-          </form>
-        </div>
-
-        <!-- Evidence & Result Box -->
-        <div id="checker-result-box" class="checker-result-box">
-          <div class="result-empty">
-            <div class="result-icon">⌕</div>
-            <p class="eyebrow">Awaiting Input</p>
-            <h3>Verify 5 essential security parameters before applying.</h3>
-            <p>Our server-side engine checks Notice ID, corporate domain, recruiter email, zero-fee compliance, and computes an immutable SHA-256 fingerprint.</p>
-            <div class="result-check-list">
-              <span>01</span> Notice ID
-              <span>02</span> Corporate Domain
-              <span>03</span> Recruiter Email
-              <span>04</span> Fee Policy
-              <span>05</span> SHA-256 Hash
-            </div>
-          </div>
-        </div>
+      <div class="footer-meta">
+        <span>SHA-256 Cryptographic Engine</span>
+        <span>Aligned with UN SDG 8</span>
       </div>
-    </main>
+    </div>
+  </footer>
 
-    <footer class="site-footer">
-      <div class="shell footer-inner">
-        <div class="footer-brand">
-          <span class="brand-mark">pp</span>
-          <div>
-            <strong>placementProof</strong>
-            <span>Notice Checker Workbench.</span>
-          </div>
-        </div>
-        <div class="footer-meta">
-          <span>SHA-256 Cryptographic Engine</span>
-          <span>Aligned with UN SDG 8</span>
-        </div>
-      </div>
-    </footer>
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <script src="/js/shared.js"></script>
+  <script src="/js/check.js"></script>
+</body>
 
-    <div id="toast-container" class="toast-container" aria-live="polite"></div>
-    <script src="/js/shared.js"></script>
-    <script src="/js/check.js"></script>
-  </body>
 </html>

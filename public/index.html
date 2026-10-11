@@ -1,185 +1,201 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="PlacementProof — Cryptographic verification and tamper-detection for college placement notices." />
-    <title>PlacementProof — Cryptographically Verified Placement Notices</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="shell header-inner">
-        <a class="brand" href="/" aria-label="PlacementProof home">
-          <span class="brand-mark">pp</span>
-          <span>
-            <strong>placementProof</strong>
-            <small>check before you act</small>
-          </span>
-        </a>
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/check">Notice Checker</a>
-          <a href="/board">Approved Board</a>
-          <a href="/portal">Officer Portal</a>
-        </nav>
-        <span class="demo-chip"><span class="status-dot"></span> MSc Cyber Security</span>
-      </div>
-    </header>
 
-    <main>
-      <!-- Hero Section -->
-      <section class="hero shell">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="rule"></span> College Placement Integrity</p>
-          <h1>Before you pay or apply, <em>verify the source.</em></h1>
-          <p class="hero-lede">
-            Forwarded messages and group screenshots can alter recruitment details and demand fraudulent fees.
-            <strong>PlacementProof</strong> lets students cryptographically verify notices against approved college Training &amp; Placement Cell records.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="PlacementProof — Cryptographic verification and tamper-detection for college placement notices." />
+  <title>PlacementProof — Cryptographically Verified Placement Notices</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="PlacementProof home">
+        <span class="brand-mark">pp</span>
+        <span>
+          <strong>placementProof</strong>
+          <small>check before you act</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/check">Notice Checker</a>
+        <a href="/board">Approved Board</a>
+        <a href="/portal">Officer Portal</a>
+      </nav>
+      <span class="demo-chip"><span class="status-dot"></span> MSc Cyber Security</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="rule"></span> College Placement Integrity</p>
+        <h1>Before you pay or apply, <em>verify the source.</em></h1>
+        <p class="hero-lede">
+          Forwarded messages and group screenshots can alter recruitment details and demand fraudulent fees.
+          <strong>PlacementProof</strong> lets students cryptographically verify notices against approved college
+          Training &amp; Placement Cell records.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/check">Verify a Notice Now <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="/board">Browse Approved Placements</a>
+        </div>
+        <div class="hero-footnote">
+          <span class="tiny-check">✓</span> Mathematical integrity via SHA-256 hashes &amp; automated phishing
+          heuristics.
+        </div>
+      </div>
+
+      <div class="hero-card-wrap">
+        <div class="pin-label">OFFICER-REVIEWED</div>
+        <article class="notice-card hero-card">
+          <div class="card-topline">
+            <span class="approved-pill"><span>✓</span> Approved</span>
+            <span class="mono">PP-2026-014</span>
+          </div>
+          <div class="company-line">
+            <span class="company-avatar">B</span>
+            <span>BrightPath Analytics</span>
+          </div>
+          <h3>Graduate Data Analyst</h3>
+          <p class="muted">Bengaluru / Hybrid · Full-time</p>
+          <div class="mini-details">
+            <div><span>Apply by</span><strong>30 Oct 2026</strong></div>
+            <div><span>Student fee</span><strong>₹0 Guaranteed</strong></div>
+          </div>
+          <div class="crypto-box">
+            <div class="crypto-title"><span>SHA-256 Provenance Fingerprint</span><span>✓ Immutable</span></div>
+            <div class="crypto-hash">c4e8b91a7d2e...44a108f9</div>
+          </div>
+          <div class="source-strip">
+            <span class="source-icon">↗</span>
+            <span>brightpathanalytics.in</span>
+            <span class="source-checked">Official Source Verified</span>
+          </div>
+        </article>
+        <div class="hero-note">
+          <span class="note-arrow">↙</span>
+          <span>Tamper-proof record signed by your T&amp;P Cell.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Band -->
+    <section class="trust-band">
+      <div class="shell trust-band-inner">
+        <div class="trust-message">
+          <span class="trust-icon">◎</span>
+          <span><strong>Defensive Verification Parameters:</strong> &nbsp;Notice ID · Corporate Domain · Recruiter Email
+            · Fee Policy · SHA-256 Checksum</span>
+        </div>
+        <span class="trust-side">Maintained by College Training &amp; Placement Cell</span>
+      </div>
+    </section>
+
+    <!-- Feature Grid: 3 Dedicated Workspaces -->
+    <section class="section shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span class="rule"></span> Architectural Modules</p>
+          <h2>Choose your workspace.</h2>
+        </div>
+        <p class="section-intro">PlacementProof is split into three purpose-built tools for students and placement
+          administration.</p>
+      </div>
+
+      <div class="feature-grid">
+        <!-- Card 1: Checker -->
+        <article class="feature-card highlight">
+          <span class="feature-badge">Student Tool</span>
+          <div class="feature-icon">⌕</div>
+          <h3>Notice Checker</h3>
+          <p>
+            Compare any received message, WhatsApp forward, or email against the verified registry.
+            Includes raw message text parsing, domain typosquatting detection, free email provider warnings, and SHA-256
+            tamper analysis.
           </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="/check">Verify a Notice Now <span aria-hidden="true">→</span></a>
-            <a class="button button-secondary" href="/board">Browse Approved Placements</a>
-          </div>
-          <div class="hero-footnote">
-            <span class="tiny-check">✓</span> Mathematical integrity via SHA-256 hashes &amp; automated phishing heuristics.
-          </div>
+          <a class="button button-primary" href="/check">Launch Checker Tool →</a>
+        </article>
+
+        <!-- Card 2: Board -->
+        <article class="feature-card">
+          <span class="feature-badge">Student Directory</span>
+          <div class="feature-icon">📋</div>
+          <h3>Approved Opportunities</h3>
+          <p>
+            Search and explore verified campus placement drives. Filter by jobs, internships, or trainee programs with
+            guaranteed ₹0 fee policies and direct official links.
+          </p>
+          <a class="button button-secondary" href="/board">View Opportunities Board →</a>
+        </article>
+
+        <!-- Card 3: Portal -->
+        <article class="feature-card">
+          <span class="feature-badge">Officer Dashboard</span>
+          <div class="feature-icon">🛡️</div>
+          <h3>Placement Officer Portal</h3>
+          <p>
+            Administrative workbench for T&amp;P officers to publish new vetted notices, manage review queues, audit
+            suspicious verification attempts, and withdraw notices.
+          </p>
+          <a class="button button-secondary" href="/portal">Access Officer Portal →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Threat Intelligence & Academic Context -->
+    <section class="section guidance-section">
+      <div class="shell guidance-layout">
+        <div>
+          <p class="eyebrow"><span class="rule"></span> Threat Landscape &amp; SDG 8</p>
+          <h2>Why provenance matters in recruitment cybersecurity.</h2>
         </div>
-
-        <div class="hero-card-wrap">
-          <div class="pin-label">OFFICER-REVIEWED</div>
-          <article class="notice-card hero-card">
-            <div class="card-topline">
-              <span class="approved-pill"><span>✓</span> Approved</span>
-              <span class="mono">PP-2026-014</span>
-            </div>
-            <div class="company-line">
-              <span class="company-avatar">B</span>
-              <span>BrightPath Analytics</span>
-            </div>
-            <h3>Graduate Data Analyst</h3>
-            <p class="muted">Bengaluru / Hybrid · Full-time</p>
-            <div class="mini-details">
-              <div><span>Apply by</span><strong>30 Oct 2026</strong></div>
-              <div><span>Student fee</span><strong>₹0 Guaranteed</strong></div>
-            </div>
-            <div class="crypto-box">
-              <div class="crypto-title"><span>SHA-256 Provenance Fingerprint</span><span>✓ Immutable</span></div>
-              <div class="crypto-hash">c4e8b91a7d2e...44a108f9</div>
-            </div>
-            <div class="source-strip">
-              <span class="source-icon">↗</span>
-              <span>brightpathanalytics.in</span>
-              <span class="source-checked">Official Source Verified</span>
-            </div>
-          </article>
-          <div class="hero-note">
-            <span class="note-arrow">↙</span>
-            <span>Tamper-proof record signed by your T&amp;P Cell.</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Trust Band -->
-      <section class="trust-band">
-        <div class="shell trust-band-inner">
-          <div class="trust-message">
-            <span class="trust-icon">◎</span>
-            <span><strong>Defensive Verification Parameters:</strong> &nbsp;Notice ID · Corporate Domain · Recruiter Email · Fee Policy · SHA-256 Checksum</span>
-          </div>
-          <span class="trust-side">Maintained by College Training &amp; Placement Cell</span>
-        </div>
-      </section>
-
-      <!-- Feature Grid: 3 Dedicated Workspaces -->
-      <section class="section shell">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow"><span class="rule"></span> Architectural Modules</p>
-            <h2>Choose your workspace.</h2>
-          </div>
-          <p class="section-intro">PlacementProof is split into three purpose-built tools for students and placement administration.</p>
-        </div>
-
-        <div class="feature-grid">
-          <!-- Card 1: Checker -->
-          <article class="feature-card highlight">
-            <span class="feature-badge">Student Tool</span>
-            <div class="feature-icon">⌕</div>
-            <h3>Notice Checker</h3>
-            <p>
-              Compare any received message, WhatsApp forward, or email against the verified registry.
-              Includes raw message text parsing, domain typosquatting detection, free email provider warnings, and SHA-256 tamper analysis.
-            </p>
-            <a class="button button-primary" href="/check">Launch Checker Tool →</a>
-          </article>
-
-          <!-- Card 2: Board -->
-          <article class="feature-card">
-            <span class="feature-badge">Student Directory</span>
-            <div class="feature-icon">📋</div>
-            <h3>Approved Opportunities</h3>
-            <p>
-              Search and explore verified campus placement drives. Filter by jobs, internships, or trainee programs with guaranteed ₹0 fee policies and direct official links.
-            </p>
-            <a class="button button-secondary" href="/board">View Opportunities Board →</a>
-          </article>
-
-          <!-- Card 3: Portal -->
-          <article class="feature-card">
-            <span class="feature-badge">Officer Dashboard</span>
-            <div class="feature-icon">🛡️</div>
-            <h3>Placement Officer Portal</h3>
-            <p>
-              Administrative workbench for T&amp;P officers to publish new vetted notices, manage review queues, audit suspicious verification attempts, and withdraw notices.
-            </p>
-            <a class="button button-secondary" href="/portal">Access Officer Portal →</a>
-          </article>
-        </div>
-      </section>
-
-      <!-- Threat Intelligence & Academic Context -->
-      <section class="section guidance-section">
-        <div class="shell guidance-layout">
-          <div>
-            <p class="eyebrow"><span class="rule"></span> Threat Landscape &amp; SDG 8</p>
-            <h2>Why provenance matters in recruitment cybersecurity.</h2>
-          </div>
-          <div class="guidance-copy">
-            <p>
-              Fresh graduates and first-time job seekers are prime targets for employment scam syndicates. Fraudsters frequently harvest legitimate company names, set up lookalike websites, and forward tampered notices with upfront fees disguised as "laptop deposits" or "aptitude test fees".
-            </p>
-            <p class="source-callout">
-              <strong>Advisory References:</strong> CERT-In Advisory CIAD-2024-0050 details widespread fake recruitment campaigns aimed at Indian graduates. A 2025 Ministry of Rural Development / PIB report identified malicious impersonation sites taken down via I4C coordination following FIR registrations.
-            </p>
-            <div class="next-step-strip">
-              <span class="next-step-icon">→</span>
-              <div>
-                <strong>The Golden Rule for Students</strong>
-                <span>Never pay for an interview or campus placement. If notice details differ by even ₹1, pause immediately and verify with your college T&amp;P Cell.</span>
-              </div>
+        <div class="guidance-copy">
+          <p>
+            Fresh graduates and first-time job seekers are prime targets for employment scam syndicates. Fraudsters
+            frequently harvest legitimate company names, set up lookalike websites, and forward tampered notices with
+            upfront fees disguised as "laptop deposits" or "aptitude test fees".
+          </p>
+          <p class="source-callout">
+            <strong>Advisory References:</strong> CERT-In Advisory CIAD-2024-0050 details widespread fake recruitment
+            campaigns aimed at Indian graduates. A 2025 Ministry of Rural Development / PIB report identified malicious
+            impersonation sites taken down via I4C coordination following FIR registrations.
+          </p>
+          <div class="next-step-strip">
+            <span class="next-step-icon">→</span>
+            <div>
+              <strong>The Golden Rule for Students</strong>
+              <span>Never pay for an interview or campus placement. If notice details differ by even ₹1, pause
+                immediately and verify with your college T&amp;P Cell.</span>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="shell footer-inner">
-        <div class="footer-brand">
-          <span class="brand-mark">pp</span>
-          <div>
-            <strong>placementProof</strong>
-            <span>Cryptographic Verification &amp; Anti-Phishing Architecture.</span>
-          </div>
-        </div>
-        <div class="footer-meta">
-          <span>MSc Cyber Security (Coursework: CWT)</span>
-          <span>Aligned with UN SDG 8 (Decent Work)</span>
         </div>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script src="/js/shared.js"></script>
-  </body>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">pp</span>
+        <div>
+          <strong>placementProof</strong>
+          <span>Cryptographic Verification &amp; Anti-Phishing Architecture.</span>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>MSc Cyber Security (Coursework: CWT)</span>
+        <span>Aligned with UN SDG 8 (Decent Work)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/shared.js"></script>
+</body>
+
 </html>

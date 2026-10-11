@@ -1,223 +1,237 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Placement Officer Portal — Manage verified notices, review queues, and security audit logs." />
-    <title>Placement Officer Portal — PlacementProof</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="shell header-inner">
-        <a class="brand" href="/" aria-label="PlacementProof home">
-          <span class="brand-mark">pp</span>
-          <span>
-            <strong>placementProof</strong>
-            <small>check before you act</small>
-          </span>
-        </a>
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/check">Notice Checker</a>
-          <a href="/board">Approved Board</a>
-          <a href="/portal" class="active">Officer Portal</a>
-        </nav>
-        <span class="demo-chip"><span class="status-dot"></span> Staff Dashboard</span>
-      </div>
-    </header>
 
-    <main class="shell section" style="padding-top: 50px;">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow"><span class="rule"></span> T&amp;P Cell Administration</p>
-          <h2>Officer Review &amp; Provenance Console</h2>
-          <p class="section-intro" style="max-width: 500px;">
-            Publish verified opportunities with cryptographic SHA-256 signatures, approve or withdraw drives, and audit student verification alerts.
-          </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Placement Officer Portal — Manage verified notices, review queues, and security audit logs." />
+  <title>Placement Officer Portal — PlacementProof</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="PlacementProof home">
+        <span class="brand-mark">pp</span>
+        <span>
+          <strong>placementProof</strong>
+          <small>check before you act</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/check">Notice Checker</a>
+        <a href="/board">Approved Board</a>
+        <a href="/portal" class="active">Officer Portal</a>
+      </nav>
+      <span class="demo-chip"><span class="status-dot"></span> Staff Dashboard</span>
+    </div>
+  </header>
+
+  <main class="shell section" style="padding-top: 50px;">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span class="rule"></span> T&amp;P Cell Administration</p>
+        <h2>Officer Review &amp; Provenance Console</h2>
+        <p class="section-intro" style="max-width: 500px;">
+          Publish verified opportunities with cryptographic SHA-256 signatures, approve or withdraw drives, and audit
+          student verification alerts.
+        </p>
+      </div>
+      <div class="dashboard-actions">
+        <button id="open-add-notice-btn" class="button button-primary" type="button">
+          <span aria-hidden="true">+</span> Post New Notice
+        </button>
+        <div class="demo-role-note">
+          <span class="lock-icon">🔒</span> PIN: <strong>officer2026</strong>
         </div>
-        <div class="dashboard-actions">
-          <button id="open-add-notice-btn" class="button button-primary" type="button">
-            <span aria-hidden="true">+</span> Post New Notice
-          </button>
-          <div class="demo-role-note">
-            <span class="lock-icon">🔒</span> PIN: <strong>officer2026</strong>
+      </div>
+    </div>
+
+    <!-- KPI Stats -->
+    <div class="dashboard-stats" id="dashboard-stats">
+      <div class="stat-card approved-stat">
+        <div class="stat-label"><span>Approved</span><span>01</span></div>
+        <span class="stat-value" id="stat-approved">-</span>
+      </div>
+      <div class="stat-card pending-stat">
+        <div class="stat-label"><span>Pending Review</span><span>02</span></div>
+        <span class="stat-value" id="stat-pending">-</span>
+      </div>
+      <div class="stat-card withdrawn-stat">
+        <div class="stat-label"><span>Withdrawn</span><span>03</span></div>
+        <span class="stat-value" id="stat-withdrawn">-</span>
+      </div>
+      <div class="stat-card audit-stat">
+        <div class="stat-label"><span>Security Logs</span><span>04</span></div>
+        <span class="stat-value" id="stat-logs">-</span>
+      </div>
+    </div>
+
+    <!-- Review Toolbar & Tabs -->
+    <div class="review-toolbar">
+      <div class="filter-tabs" role="tablist">
+        <button class="tab-btn active" type="button" data-filter="all">All Notices (<span
+            id="count-all">0</span>)</button>
+        <button class="tab-btn" type="button" data-filter="pending">Pending (<span id="count-pending">0</span>)</button>
+        <button class="tab-btn" type="button" data-filter="approved">Approved (<span
+            id="count-approved">0</span>)</button>
+        <button class="tab-btn" type="button" data-filter="withdrawn">Withdrawn (<span
+            id="count-withdrawn">0</span>)</button>
+      </div>
+    </div>
+
+    <!-- Portal Layout: Queue + Audit Log -->
+    <div class="portal-layout">
+      <!-- Review Queue -->
+      <div>
+        <div class="review-list" id="review-list" aria-live="polite"></div>
+      </div>
+
+      <!-- Sidebar: Security Audit Log -->
+      <aside>
+        <div class="aside-card" style="margin-bottom: 16px;">
+          <span class="aside-number">01</span>
+          <h3>Cryptographic Integrity</h3>
+          <p>Every notice is stamped with an immutable SHA-256 hash across ID, company, domain, contact, fee, and
+            deadline.</p>
+          <span class="mono" style="color: #9bd9c7; font-size: 10px;">Hash Algo: SHA-256 (Canonical)</span>
+        </div>
+
+        <div class="audit-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h4 style="margin: 0; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;">
+              🛡️ Threat &amp; Verification Audit Log
+            </h4>
+            <button class="small-button" type="button" id="btn-refresh-audit"
+              style="padding: 4px 8px; font-size: 9px;">Refresh</button>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="audit-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Notice</th>
+                  <th>Status</th>
+                  <th>Severity</th>
+                </tr>
+              </thead>
+              <tbody id="audit-log-body">
+                <tr>
+                  <td colspan="4" class="muted">Loading audit entries...</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
+      </aside>
+    </div>
 
-      <!-- KPI Stats -->
-      <div class="dashboard-stats" id="dashboard-stats">
-        <div class="stat-card approved-stat">
-          <div class="stat-label"><span>Approved</span><span>01</span></div>
-          <span class="stat-value" id="stat-approved">-</span>
-        </div>
-        <div class="stat-card pending-stat">
-          <div class="stat-label"><span>Pending Review</span><span>02</span></div>
-          <span class="stat-value" id="stat-pending">-</span>
-        </div>
-        <div class="stat-card withdrawn-stat">
-          <div class="stat-label"><span>Withdrawn</span><span>03</span></div>
-          <span class="stat-value" id="stat-withdrawn">-</span>
-        </div>
-        <div class="stat-card audit-stat">
-          <div class="stat-label"><span>Security Logs</span><span>04</span></div>
-          <span class="stat-value" id="stat-logs">-</span>
-        </div>
-      </div>
-
-      <!-- Review Toolbar & Tabs -->
-      <div class="review-toolbar">
-        <div class="filter-tabs" role="tablist">
-          <button class="tab-btn active" type="button" data-filter="all">All Notices (<span id="count-all">0</span>)</button>
-          <button class="tab-btn" type="button" data-filter="pending">Pending (<span id="count-pending">0</span>)</button>
-          <button class="tab-btn" type="button" data-filter="approved">Approved (<span id="count-approved">0</span>)</button>
-          <button class="tab-btn" type="button" data-filter="withdrawn">Withdrawn (<span id="count-withdrawn">0</span>)</button>
-        </div>
-      </div>
-
-      <!-- Portal Layout: Queue + Audit Log -->
-      <div class="portal-layout">
-        <!-- Review Queue -->
-        <div>
-          <div class="review-list" id="review-list" aria-live="polite"></div>
-        </div>
-
-        <!-- Sidebar: Security Audit Log -->
-        <aside>
-          <div class="aside-card" style="margin-bottom: 16px;">
-            <span class="aside-number">01</span>
-            <h3>Cryptographic Integrity</h3>
-            <p>Every notice is stamped with an immutable SHA-256 hash across ID, company, domain, contact, fee, and deadline.</p>
-            <span class="mono" style="color: #9bd9c7; font-size: 10px;">Hash Algo: SHA-256 (Canonical)</span>
-          </div>
-
-          <div class="audit-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <h4 style="margin: 0; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;">
-                🛡️ Threat &amp; Verification Audit Log
-              </h4>
-              <button class="small-button" type="button" id="btn-refresh-audit" style="padding: 4px 8px; font-size: 9px;">Refresh</button>
-            </div>
-            <div style="overflow-x: auto;">
-              <table class="audit-table">
-                <thead>
-                  <tr>
-                    <th>Time</th>
-                    <th>Notice</th>
-                    <th>Status</th>
-                    <th>Severity</th>
-                  </tr>
-                </thead>
-                <tbody id="audit-log-body">
-                  <tr><td colspan="4" class="muted">Loading audit entries...</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Modal: Add / Post Notice -->
-      <div id="add-notice-modal" class="modal-backdrop" aria-hidden="true">
-        <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-          <div class="modal-header">
-            <div>
-              <span class="step-number">✓</span>
-              <h3 id="modal-title">Post Verified Placement Notice</h3>
-              <p>Creates a signed record in the verified college registry.</p>
-            </div>
-            <button id="close-modal-btn" class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
-          </div>
-          <form id="add-notice-form" class="modal-form">
-            <div class="form-row">
-              <div>
-                <label for="new-company">Company name *</label>
-                <input id="new-company" name="company" type="text" placeholder="e.g. CyberDefense Labs" required />
-              </div>
-              <div>
-                <label for="new-title">Role / Position *</label>
-                <input id="new-title" name="title" type="text" placeholder="e.g. Junior SOC Analyst" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label for="new-type">Type</label>
-                <select id="new-type" name="type">
-                  <option value="Job">Full-time Job</option>
-                  <option value="Internship">Internship</option>
-                  <option value="Trainee">Trainee / Graduate</option>
-                </select>
-              </div>
-              <div>
-                <label for="new-location">Location</label>
-                <input id="new-location" name="location" type="text" placeholder="e.g. Bengaluru / Hybrid" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label for="new-domain">Employer domain * <span class="label-hint">official website</span></label>
-                <input id="new-domain" name="domain" type="text" placeholder="e.g. cyberdefense.in" required />
-              </div>
-              <div>
-                <label for="new-contact">Contact email * <span class="label-hint">recruiter address</span></label>
-                <input id="new-contact" name="contact" type="email" placeholder="e.g. careers@cyberdefense.in" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label for="new-url">Official careers URL</label>
-                <input id="new-url" name="officialUrl" type="url" placeholder="https://cyberdefense.in/careers" />
-              </div>
-              <div>
-                <label for="new-deadline">Application deadline</label>
-                <input id="new-deadline" name="deadline" type="text" placeholder="e.g. 15 Nov 2026" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label for="new-fee">Student fee (₹) <span class="label-hint">must be ₹0</span></label>
-                <input id="new-fee" name="fee" type="number" min="0" value="0" required />
-              </div>
-              <div>
-                <label for="new-status">Verification status</label>
-                <select id="new-status" name="status">
-                  <option value="approved">Approved &amp; Published</option>
-                  <option value="pending">Pending Officer Review</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label for="new-note">Reviewer provenance note</label>
-              <input id="new-note" name="sourceNote" type="text" placeholder="e.g. Verified via college T&P official campus recruiter MoU." />
-            </div>
-            <div class="modal-actions">
-              <button id="cancel-modal-btn" class="small-button" type="button">Cancel</button>
-              <button class="button button-primary" type="submit">Sign &amp; Publish Notice <span aria-hidden="true">→</span></button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="shell footer-inner">
-        <div class="footer-brand">
-          <span class="brand-mark">pp</span>
+    <!-- Modal: Add / Post Notice -->
+    <div id="add-notice-modal" class="modal-backdrop" aria-hidden="true">
+      <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-header">
           <div>
-            <strong>placementProof</strong>
-            <span>Officer Console &amp; Audit Engine.</span>
+            <span class="step-number">✓</span>
+            <h3 id="modal-title">Post Verified Placement Notice</h3>
+            <p>Creates a signed record in the verified college registry.</p>
           </div>
+          <button id="close-modal-btn" class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
         </div>
-        <div class="footer-meta">
-          <span>Security Audit Active</span>
-          <span>Aligned with UN SDG 8</span>
+        <form id="add-notice-form" class="modal-form">
+          <div class="form-row">
+            <div>
+              <label for="new-company">Company name *</label>
+              <input id="new-company" name="company" type="text" placeholder="e.g. CyberDefense Labs" required />
+            </div>
+            <div>
+              <label for="new-title">Role / Position *</label>
+              <input id="new-title" name="title" type="text" placeholder="e.g. Junior SOC Analyst" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="new-type">Type</label>
+              <select id="new-type" name="type">
+                <option value="Job">Full-time Job</option>
+                <option value="Internship">Internship</option>
+                <option value="Trainee">Trainee / Graduate</option>
+              </select>
+            </div>
+            <div>
+              <label for="new-location">Location</label>
+              <input id="new-location" name="location" type="text" placeholder="e.g. Bengaluru / Hybrid" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="new-domain">Employer domain * <span class="label-hint">official website</span></label>
+              <input id="new-domain" name="domain" type="text" placeholder="e.g. cyberdefense.in" required />
+            </div>
+            <div>
+              <label for="new-contact">Contact email * <span class="label-hint">recruiter address</span></label>
+              <input id="new-contact" name="contact" type="email" placeholder="e.g. careers@cyberdefense.in" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="new-url">Official careers URL</label>
+              <input id="new-url" name="officialUrl" type="url" placeholder="https://cyberdefense.in/careers" />
+            </div>
+            <div>
+              <label for="new-deadline">Application deadline</label>
+              <input id="new-deadline" name="deadline" type="text" placeholder="e.g. 15 Nov 2026" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="new-fee">Student fee (₹) <span class="label-hint">must be ₹0</span></label>
+              <input id="new-fee" name="fee" type="number" min="0" value="0" required />
+            </div>
+            <div>
+              <label for="new-status">Verification status</label>
+              <select id="new-status" name="status">
+                <option value="approved">Approved &amp; Published</option>
+                <option value="pending">Pending Officer Review</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="new-note">Reviewer provenance note</label>
+            <input id="new-note" name="sourceNote" type="text"
+              placeholder="e.g. Verified via college T&P official campus recruiter MoU." />
+          </div>
+          <div class="modal-actions">
+            <button id="cancel-modal-btn" class="small-button" type="button">Cancel</button>
+            <button class="button button-primary" type="submit">Sign &amp; Publish Notice <span
+                aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">pp</span>
+        <div>
+          <strong>placementProof</strong>
+          <span>Officer Console &amp; Audit Engine.</span>
         </div>
       </div>
-    </footer>
+      <div class="footer-meta">
+        <span>Security Audit Active</span>
+        <span>Aligned with UN SDG 8</span>
+      </div>
+    </div>
+  </footer>
 
-    <div id="toast-container" class="toast-container" aria-live="polite"></div>
-    <script src="/js/shared.js"></script>
-    <script src="/js/portal.js"></script>
-  </body>
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <script src="/js/shared.js"></script>
+  <script src="/js/portal.js"></script>
+</body>
+
 </html>
