@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Approved Opportunities Board — Explore officer-verified college placement notices." />
+    <title>Approved Placements Board — PlacementProof</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/" aria-label="PlacementProof home">
+          <span class="brand-mark">pp</span>
+          <span>
+            <strong>placementProof</strong>
+            <small>check before you act</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="/check">Notice Checker</a>
+          <a href="/board" class="active">Approved Board</a>
+          <a href="/portal">Officer Portal</a>
+        </nav>
+        <span class="demo-chip"><span class="status-dot"></span> Verified Registry</span>
+      </div>
+    </header>
+
+    <main class="shell section" style="padding-top: 50px;">
+      <div class="board-header">
+        <div>
+          <p class="eyebrow"><span class="rule"></span> Campus Opportunities</p>
+          <h2>Officer-Approved Placement Board</h2>
+          <p class="section-intro" style="max-width: 500px;">
+            Every listing below is reviewed by the Training &amp; Placement Cell with verified corporate links, official MoUs, and zero application fees.
+          </p>
+        </div>
+
+        <div class="board-search-bar">
+          <input id="search-notices-input" type="text" placeholder="Search by company, role, or notice ID..." autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="review-toolbar">
+        <div class="filter-tabs" id="board-type-filters">
+          <button class="tab-btn active" type="button" data-type="all">All Opportunities</button>
+          <button class="tab-btn" type="button" data-type="Job">Full-time Jobs</button>
+          <button class="tab-btn" type="button" data-type="Internship">Internships</button>
+          <button class="tab-btn" type="button" data-type="Trainee">Trainee Programs</button>
+        </div>
+        <span class="mono" id="results-count" style="font-size: 11px;">Loading notices...</span>
+      </div>
+
+      <div id="opportunity-list" class="opportunity-grid" aria-live="polite"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div class="footer-brand">
+          <span class="brand-mark">pp</span>
+          <div>
+            <strong>placementProof</strong>
+            <span>Verified Campus Opportunities Board.</span>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <span>Student Placement Registry</span>
+          <span>Aligned with UN SDG 8</span>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+    <script src="/js/shared.js"></script>
+    <script src="/js/board.js"></script>
+  </body>
+</html>

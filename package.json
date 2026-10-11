@@ -4,6 +4,12 @@
   "private": true,
   "description": "A lightweight notice verification prototype for college placement cells.",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node test-api.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0"
   }
 }

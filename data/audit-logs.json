@@ -1,0 +1,184 @@
+{
+  "logs": [
+    {
+      "id": "AUDIT-MV3M0MX3",
+      "timestamp": "2026-10-11T09:17:22.311Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "VERIFIED_MATCH",
+      "details": "Verified match for notice PP-2026-014. SHA-256 integrity confirmed.",
+      "severity": "LOW",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3M0HK4",
+      "timestamp": "2026-10-11T09:17:15.364Z",
+      "noticeId": "PP-2026-009",
+      "action": "VERIFY_ATTEMPT",
+      "result": "NOT_REVIEWED",
+      "details": "Unknown or unreviewed notice checked: PP-2026-009. Flags: 0",
+      "severity": "LOW",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3M03KL",
+      "timestamp": "2026-10-11T09:16:57.237Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Tampering detected on notice PP-2026-014. Hash matched: false. Fee submitted: ₹2499",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3M024P",
+      "timestamp": "2026-10-11T09:16:55.369Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Tampering detected on notice PP-2026-014. Hash matched: false. Fee submitted: ₹1499",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LZWSB",
+      "timestamp": "2026-10-11T09:16:48.443Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Tampering detected on notice PP-2026-014. Hash matched: false. Fee submitted: ₹1499",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LZW5O",
+      "timestamp": "2026-10-11T09:16:47.628Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "VERIFIED_MATCH",
+      "details": "Verified match for notice PP-2026-014. SHA-256 integrity confirmed.",
+      "severity": "LOW",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LZVOH",
+      "timestamp": "2026-10-11T09:16:47.009Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Tampering detected on notice PP-2026-014. Hash matched: false. Fee submitted: ₹2499",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LZVDT",
+      "timestamp": "2026-10-11T09:16:46.625Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Tampering detected on notice PP-2026-014. Hash matched: false. Fee submitted: ₹1499",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LPIEW",
+      "timestamp": "2026-10-11T09:08:43.256Z",
+      "noticeId": "PP-2026-144",
+      "action": "NOTICE_DELETED",
+      "result": "SUCCESS",
+      "details": "Notice PP-2026-144 permanently removed by officer.",
+      "severity": "WARNING",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LPIEQ",
+      "timestamp": "2026-10-11T09:08:43.250Z",
+      "noticeId": "PP-2026-144",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Tampering detected on notice PP-2026-144. Hash matched: false. Fee submitted: ₹1499",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LPIEM",
+      "timestamp": "2026-10-11T09:08:43.246Z",
+      "noticeId": "PP-2026-144",
+      "action": "VERIFY_ATTEMPT",
+      "result": "VERIFIED_MATCH",
+      "details": "Verified match for notice PP-2026-144. SHA-256 integrity confirmed.",
+      "severity": "LOW",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LPIEF",
+      "timestamp": "2026-10-11T09:08:43.239Z",
+      "noticeId": "PP-2026-144",
+      "action": "NOTICE_CREATED",
+      "result": "SUCCESS",
+      "details": "Created notice for Alpha Defense Labs (Cyber Security Analyst) with status approved",
+      "severity": "INFO",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LJKQ4",
+      "timestamp": "2026-10-11T09:04:06.316Z",
+      "noticeId": "PP-2026-462",
+      "action": "NOTICE_DELETED",
+      "result": "SUCCESS",
+      "details": "Notice PP-2026-462 permanently removed by officer.",
+      "severity": "WARNING",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LJKPY",
+      "timestamp": "2026-10-11T09:04:06.310Z",
+      "noticeId": "PP-2026-462",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Tampering detected on notice PP-2026-462. Hash matched: false. Fee submitted: ₹1499",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LJKPW",
+      "timestamp": "2026-10-11T09:04:06.308Z",
+      "noticeId": "PP-2026-462",
+      "action": "VERIFY_ATTEMPT",
+      "result": "VERIFIED_MATCH",
+      "details": "Verified match for notice PP-2026-462. SHA-256 integrity confirmed.",
+      "severity": "LOW",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-MV3LJKPS",
+      "timestamp": "2026-10-11T09:04:06.304Z",
+      "noticeId": "PP-2026-462",
+      "action": "NOTICE_CREATED",
+      "result": "SUCCESS",
+      "details": "Created notice for Alpha Defense Labs (Cyber Security Analyst) with status approved",
+      "severity": "INFO",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-101",
+      "timestamp": "2026-10-11T13:45:00.000Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "TAMPER_DETECTED",
+      "details": "Fee mismatch detected: submitted ₹1,499 vs approved ₹0. Contact verified.",
+      "severity": "HIGH",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "AUDIT-100",
+      "timestamp": "2026-10-11T13:30:00.000Z",
+      "noticeId": "PP-2026-014",
+      "action": "VERIFY_ATTEMPT",
+      "result": "VERIFIED_MATCH",
+      "details": "All fields matched approved record and cryptographic hash verified.",
+      "severity": "LOW",
+      "ip": "127.0.0.1"
+    }
+  ]
+}

@@ -1,35 +1,50 @@
 # placementProof
 
-A lightweight HTML/CSS/JavaScript prototype for checking job and internship notices before students pay or apply.
+A security-first, multi-page web application for verifying college placement and internship notices before students pay or apply. Built for MSc Cyber Security coursework.
 
-## Run the project
+---
 
-1. Install Node.js.
-2. Open a terminal in this folder.
-3. Run:
+## Key Features
+
+1. **Multi-Page Architecture (MPA)**:
+   - `/` — **Landing Page**: Project overview, SDG 8 context, real-world CERT-In advisories, and quick workspace navigation.
+   - `/check` — **Notice Checker Workbench**: Structured field comparison, raw WhatsApp/SMS message forensic parser, and cryptographic tamper detection.
+   - `/board` — **Approved Placements Board**: Live searchable directory of verified campus drives with guaranteed ₹0 fee policies and SHA-256 fingerprints.
+   - `/portal` — **Placement Officer Portal**: Administrative console for publishing notices, managing review queues, signing SHA-256 hashes, and inspecting threat audit logs.
+
+2. **Cybersecurity & Cryptographic Integrity**:
+   - **SHA-256 Notice Provenance**: Every approved listing is cryptographically fingerprinted across canonical fields `(ID|COMPANY|DOMAIN|CONTACT|FEE|DEADLINE)`.
+   - **Mathematical Tamper Detection**: If a forwarded message alters even ₹1 or a single letter in the email, the SHA-256 mismatch provides mathematical proof of tampering.
+   - **Threat & Phishing Heuristics**: Automated flags for free public email services (`@gmail.com`), domain mismatches, upfront fee demands, and high-pressure urgency keywords.
+   - **Defensive Server Hardening**: Express.js with `helmet` (CSP, HSTS, X-Content-Type-Options) and `express-rate-limit` against automated brute-force scraping.
+   - **Security Audit Logging**: Captures forensic logs of verification attempts in `data/audit-logs.json`.
+
+---
+
+## How to Run
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start the application:
+   ```bash
+   npm start
+   ```
+
+3. Open your browser:
+   - **Landing Page**: `http://localhost:3000/`
+   - **Notice Checker**: `http://localhost:3000/check`
+   - **Approved Board**: `http://localhost:3000/board`
+   - **Officer Portal**: `http://localhost:3000/portal` (PIN: `officer2026`)
+
+---
+
+## Running the Automated Test Suite
+
+To run the automated assert-based test suite that verifies all page routes, security headers, SHA-256 generation, verification matching, and tamper detection:
 
 ```bash
-node server.js
+npm test
 ```
-
-4. Open `http://localhost:3000` in a browser.
-
-Do not open `index.html` from a file manager if you want to load the JSON file. The app still includes a built-in demo fallback, but the local server is the recommended way to run it.
-
-## What to check
-
-- **Approved opportunities:** shows the verified notice and official source.
-- **Notice checker:** use “Load changed-fee example” to see `Details differ` for ₹1,499 versus the approved ₹0.
-- **Placement cell dashboard:** scroll to “Placement cell”. Every record shows its status, reviewer, official source, approved contact, deadline and fee policy.
-- **Pending:** the placement cell has not completed verification.
-- **Approved:** the placement cell has verified and published the record.
-- **Withdrawn:** the cell has removed the opportunity; students should not use old copies.
-
-## Files
-
-- `index.html` — page structure
-- `styles.css` — responsive styling
-- `app.js` — notice loading, dashboard rendering and checker logic
-- `data/notices.json` — demo records
-- `server.js` — small local static server
-- `public/manus-routes.json` — route manifest

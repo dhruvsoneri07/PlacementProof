@@ -126,9 +126,22 @@
             <p class="eyebrow"><span class="rule"></span> 03 / Placement cell</p>
             <h2>One small review queue. Three clear states.</h2>
           </div>
-          <div class="demo-role-note"><span class="lock-icon">⌑</span> Demo role switch — <strong>not access control</strong></div>
+          <div class="dashboard-actions">
+            <button id="open-add-notice-btn" class="button button-primary" type="button">
+              <span aria-hidden="true">+</span> Post New Notice
+            </button>
+            <div class="demo-role-note"><span class="lock-icon">⌑</span> Demo role switch — <strong>not access control</strong></div>
+          </div>
         </div>
         <div class="dashboard-stats" id="dashboard-stats"></div>
+        <div class="review-toolbar">
+          <div class="filter-tabs" role="tablist" aria-label="Filter notices by status">
+            <button class="tab-btn active" type="button" data-filter="all">All notices (<span id="count-all">0</span>)</button>
+            <button class="tab-btn" type="button" data-filter="pending">Pending (<span id="count-pending">0</span>)</button>
+            <button class="tab-btn" type="button" data-filter="approved">Approved (<span id="count-approved">0</span>)</button>
+            <button class="tab-btn" type="button" data-filter="withdrawn">Withdrawn (<span id="count-withdrawn">0</span>)</button>
+          </div>
+        </div>
         <div class="review-layout">
           <div class="review-list" id="review-list" aria-live="polite"></div>
           <aside class="review-aside">
@@ -146,6 +159,89 @@
           </aside>
         </div>
       </section>
+
+      <!-- Modal: Add / Post Notice -->
+      <div id="add-notice-modal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+          <div class="modal-header">
+            <div>
+              <span class="step-number">✓</span>
+              <h3 id="modal-title">Post Verified Notice</h3>
+              <p>Add a new job or internship opportunity to the placement cell records.</p>
+            </div>
+            <button id="close-modal-btn" class="modal-close-btn" type="button" aria-label="Close modal">&times;</button>
+          </div>
+          <form id="add-notice-form" class="modal-form">
+            <div class="form-row">
+              <div>
+                <label for="new-company">Company name *</label>
+                <input id="new-company" name="company" type="text" placeholder="e.g. CyberDefense Labs" required />
+              </div>
+              <div>
+                <label for="new-title">Role / Position *</label>
+                <input id="new-title" name="title" type="text" placeholder="e.g. Junior SOC Analyst" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="new-type">Type</label>
+                <select id="new-type" name="type" class="select-input">
+                  <option value="Job">Full-time Job</option>
+                  <option value="Internship">Internship</option>
+                  <option value="Trainee">Trainee / Graduate</option>
+                </select>
+              </div>
+              <div>
+                <label for="new-location">Location</label>
+                <input id="new-location" name="location" type="text" placeholder="e.g. Bengaluru / Hybrid" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="new-domain">Employer domain * <span class="label-hint">official website</span></label>
+                <input id="new-domain" name="domain" type="text" placeholder="e.g. cyberdefense.in" required />
+              </div>
+              <div>
+                <label for="new-contact">Contact email * <span class="label-hint">recruitment contact</span></label>
+                <input id="new-contact" name="contact" type="email" placeholder="e.g. careers@cyberdefense.in" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="new-url">Official careers URL</label>
+                <input id="new-url" name="officialUrl" type="url" placeholder="https://cyberdefense.in/careers" />
+              </div>
+              <div>
+                <label for="new-deadline">Application deadline</label>
+                <input id="new-deadline" name="deadline" type="text" placeholder="e.g. 15 Nov 2026" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="new-fee">Student fee (₹) <span class="label-hint">should be ₹0</span></label>
+                <input id="new-fee" name="fee" type="number" min="0" value="0" required />
+              </div>
+              <div>
+                <label for="new-status">Verification status</label>
+                <select id="new-status" name="status" class="select-input">
+                  <option value="approved">Approved & Published</option>
+                  <option value="pending">Pending Officer Review</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="new-note">Reviewer provenance note</label>
+              <input id="new-note" name="sourceNote" type="text" placeholder="e.g. Verified via college T&P official campus recruiter MoU." />
+            </div>
+            <div class="modal-actions">
+              <button id="cancel-modal-btn" class="small-button" type="button">Cancel</button>
+              <button class="button button-primary" type="submit">Save & Publish Notice <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
       <section class="section guidance-section">
         <div class="shell guidance-layout">
